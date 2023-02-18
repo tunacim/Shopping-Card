@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <title>Shopping Cart</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  
+  <header class="container">
+    <nav class="navbar navbar-expand navbar-dark bg-primary">
+      <div class="container">
+        <a href="" class="navbar-brand">Logo</a>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="#" class="nav-link active">Home</a>
+          
+            </li>
+          </ul>
+        </div>
+        <div class="shopping-cart position-relative">
+
+          <button type="button" class="btn-cart btn btn-primary position-relative">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="item-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-2 text-dark">0</span>
+          </button>
+
+          <div class="shopping-cart-list bg-primary d-none">
+            <b class="fs-5 text-dark my-3">Shopping Cart</b>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+  <section class="products mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6 mb-3">
+          <div class="card">
+            <img src="data:image/jpeg;base64,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" alt="product" class="card-img-top img-fluid">
+            <div class="card-body">
+              <h5 class="card-title">Samsung A53 5G Mavi 128</h5>
+              <p class="cart-text">
+                Üstün Donanım Özellikleri Sayesinde Yüksek Kalitede Oyun ve İzleme Zevkini Yaşayın. Tüm alışverişlerinizde ücretsiz kargo ve taksit seçenekleriyle hemen satın alın. AMOLED Ekran. 64MP OIS Kamera. Çift Sim. 128 GB
+              </p>
+              <div class="d-flex justify-content-between">
+                <a class="btn btn-info text-white" href="#">Add to Cart</a>
+                <span class="price badge rounded-pill bg-warning text-dark d-flex align-items-center">$
+                  500</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+          <div class="card">
+            <img src="data:image/jpeg;base64,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" alt="product" class="card-img-top img-fluid">
+            <div class="card-body">
+              <h5 class="card-title">IPhone 14 Pro 128GB Lila</h5>
+              <p class="cart-text">
+                Yeni ve sihirli bir iPhone deneyimi. Akılalmaz ayrıntılar için inovatif 48 MP kamera. Hayat kurtarmak için tasarlanan bir güvenlik özelliği. Ve hepsine güç veren olağanüstü bir akıllı telefon çipi.
+              </p>
+              <div class="d-flex justify-content-between">
+                <a class="btn btn-info text-white" href="#">Add to Cart</a>
+                <span class="price badge rounded-pill bg-warning text-dark d-flex align-items-center">$
+                  650</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+          <div class="card">
+            <img src="https://cdn.cimri.io/image/1000x1000/xiaomiproggbgbraminmpakllceptelefonu_654312832.jpg" alt="product" class="card-img-top img-fluid">
+            <div class="card-body">
+              <h5 class="card-title">Xiaomi 12 Pro 5G 256GB Siyah</h5>
+              <p class="cart-text">
+                İsteklerinizi hayata geçirmek için sürekli mükemmelliği arayışımızdan yola çıkarak geliştirilen Xiaomi 12 Pro'nun profesyonel düzeyde 50 MP üçlü kamera dizisi, WQHD+ dinamik 120 Hz ekranı, şimdiye kadarki en gelişmiş Snapdragon® 8 1. Nesil yonga seti ve akıllı 120 W Xiaomi HyperCharge özelliğiyle her sahnede ustalaş
+              </p>
+              <div class="d-flex justify-content-between">
+                <a class="btn btn-info text-white" href="#">Add to Cart</a>
+                <span class="price badge rounded-pill bg-warning text-dark d-flex align-items-center">$
+                  400</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-3">
+          <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuAZzoNIRhkRz0sHnTAAogKuVheLNCfButVw&usqp=CAU" alt="product" class="card-img-top img-fluid">
+            <div class="card-body">
+              <h5 class="card-title">Oppo A55 128 GB Siyah</h5>
+              <p class="cart-text">
+                Süper Güç Tasarrufu Modunu Etkinleştirin ve Sınırsız Eğlencenin Keyfini Çıkarın. OPPO A55'in 16MP Selfie Kamerası ile Her Açıyı En İyi Açınız Yapın.
+
+              </p>
+              <div class="d-flex justify-content-between">
+                <a class="btn btn-info text-dark" href="#">Add to Cart</a>
+                <span class="price badge rounded-pill bg-warning text-dark d-flex align-items-center">$
+                  300</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
